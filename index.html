@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魅力腾冲 - 极边第一城 | 温泉之乡 翡翠之都</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="index">
+    <div id="nav-placeholder"></div>
+
+    <!-- 轮播图 共5张 -->
+    <section class="carousel" id="homeCarousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/home-banner-1.jpg" alt="腾冲火山热海">
+                <div class="carousel-caption">
+                    <h2>极边第一城</h2>
+                    <p>火山与温泉共生，翡翠与文化交融</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/home-banner-2.jpg" alt="腾冲和顺古镇">
+                <div class="carousel-caption">
+                    <h2>和顺古镇</h2>
+                    <p>600年侨乡文化，诗意栖居</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/home-banner-3.jpg" alt="腾冲银杏村">
+                <div class="carousel-caption">
+                    <h2>金色银杏村</h2>
+                    <p>满城尽带黄金甲，最美秋色在腾冲</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/home-banner-4.jpg" alt="腾冲火山地质公园">
+                <div class="carousel-caption">
+                    <h2>火山地质公园</h2>
+                    <p>97座火山奇观，天然地质博物馆</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/home-banner-5.jpg" alt="腾冲国殇墓园">
+                <div class="carousel-caption">
+                    <h2>铭记历史</h2>
+                    <p>滇西抗战纪念馆，缅怀远征军英烈</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-arrow prev">‹</button>
+        <button class="carousel-arrow next">›</button>
+        <div class="carousel-controls">
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+        </div>
+    </section>
+
+    <!-- 欢迎区块 -->
+    <section class="container">
+        <div class="section-title reveal">
+            <h2>走进腾冲</h2>
+            <p id="typewriter-text" data-text="云南省保山市腾冲市 · 中国通向南亚东南亚的重要门户"></p>
+        </div>
+        <div class="intro-split reveal">
+            <div class="official-intro intro-left">
+                <h3 class="intro-subtitle">极边第一城 · 火山温泉 · 翡翠文化</h3>
+                <p>
+                    腾冲位于云南省西南部，毗邻缅甸，是中国通向南亚、东南亚的重要门户。腾冲古称“腾越”，两千余年文脉绵延，素有“极边第一城”之美誉。
+                </p>
+                
+                <div class="stats-panel">
+    <div class="stat-item">
+        <div class="stat-num"><span class="counter" data-target="97">0</span> 座</div>
+        <p>休眠火山奇观</p>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num"><span class="counter" data-target="88">0</span> 处</div>
+        <p>天然地热温泉</p>
+    </div>
+    <div class="stat-item">
+        <div class="stat-num"><span class="counter" data-target="600">0</span> 年</div>
+        <p>悠久侨乡历史</p>
+    </div>
+</div>
+                <p class="intro-note">
+                    这里既适合观光打卡，也适合康养休闲——欢迎你来腾冲，慢下来，好好生活。
+                </p>
+            </div>
+
+            <div class="promo-video-card intro-right">
+                <div class="promo-video-header">
+                    <h3 class="promo-video-title">腾冲旅游文化宣传片</h3>
+                    <label class="btn btn-outline promo-video-upload">
+                        选择本地视频
+                        <input type="file" id="promoVideoFile" accept="video/*" hidden>
+                    </label>
+                </div>
+                <div class="promo-video-wrap">
+                    <video id="promoVideo" controls preload="metadata" poster="images/video-poster.svg">
+                        <source src="media/tengchong-promo.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放，请更换浏览器或下载后观看。
+                    </video>
+                </div>
+                <p class="promo-video-hint"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门景点预览 -->
+    <section class="container">
+        <div class="section-title reveal">
+            <h2>热门景点</h2>
+            <p>探索腾冲最具特色的自然与人文景观</p>
+        </div>
+        <div class="card-grid">
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="images/attraction-hotspring.jpg" alt="热海景区">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">热海景区</h3>
+                    <p class="card-text">中国规模最大的地热温泉群，大滚锅、怀胎井、珍珠泉等奇观令人叹为观止，可体验天然温泉煮鸡蛋。</p>
+                    <a href="attractions.html#hotspring" class="btn btn-primary" style="margin-top: 16px;">了解详情</a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="images/attraction-heshun.jpg" alt="和顺古镇">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">和顺古镇</h3>
+                    <p class="card-text">中国第一魅力名镇，600年侨乡文化，艾思奇故居、和顺图书馆等建筑古朴典雅。</p>
+                    <a href="attractions.html#heshun" class="btn btn-primary" style="margin-top: 16px;">了解详情</a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="images/attraction-ginkgo.jpg" alt="银杏村">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">固东银杏村</h3>
+                    <p class="card-text">三千多株古银杏，秋季金黄漫天，被誉为"中国最美银杏村"。</p>
+                    <a href="attractions.html#ginkgo" class="btn btn-primary" style="margin-top: 16px;">了解详情</a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="images/attraction-volcano.jpg" alt="火山公园">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">火山地质公园</h3>
+                    <p class="card-text">97座火山构成壮观火山群，可登顶俯瞰、乘坐热气球，火山博物馆展示地质科普。</p>
+                    <a href="attractions.html#volcano" class="btn btn-primary" style="margin-top: 16px;">了解详情</a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="images/attraction-memorial.jpg" alt="国殇墓园">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">国殇墓园</h3>
+                    <p class="card-text">全国重点文物保护单位，纪念中国远征军阵亡将士，爱国主义教育基地。</p>
+                    <a href="attractions.html#memorial" class="btn btn-primary" style="margin-top: 16px;">了解详情</a>
+                </div>
+            </div>
+            <div class="card reveal">
+                <div class="card-img">
+                    <img src="images/attraction-wetland.jpg" alt="北海湿地">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">北海湿地</h3>
+                    <p class="card-text">云南省唯一的国家湿地保护区，高原火山堰塞湖，可乘船游览、体验草排划行。</p>
+                    <a href="attractions.html#wetland" class="btn btn-primary" style="margin-top: 16px;">了解详情</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务指南 上2下2 -->
+    <section class="container">
+        <div class="section-title reveal">
+            <h2>服务指南</h2>
+            <p>全方位了解腾冲旅游资讯与公共服务</p>
+        </div>
+        <div class="card-grid service-guide-grid">
+            <a href="heritage.html" class="card reveal card-link">
+                <div class="card-body" style="text-align: center;">
+                    <div class="card-icon">🏛️</div>
+                    <h3 class="card-title">文化遗产</h3>
+                    <p class="card-text">非遗技艺、传统村落、抗战遗址、侨乡文化</p>
+                </div>
+            </a>
+            <a href="guide.html" class="card reveal card-link">
+                <div class="card-body" style="text-align: center;">
+                    <div class="card-icon">📋</div>
+                    <h3 class="card-title">旅游攻略</h3>
+                    <p class="card-text">推荐行程、美食指南、住宿建议、出行贴士</p>
+                </div>
+            </a>
+            <a href="transport.html" class="card reveal card-link">
+                <div class="card-body" style="text-align: center;">
+                    <div class="card-icon">🚌</div>
+                    <h3 class="card-title">交通指南</h3>
+                    <p class="card-text">航空、铁路、自驾及市内交通出行信息</p>
+                </div>
+            </a>
+            <a href="contact.html" class="card reveal card-link">
+                <div class="card-body" style="text-align: center;">
+                    <div class="card-icon">📮</div>
+                    <h3 class="card-title">联系我们</h3>
+                    <p class="card-text">留言反馈、投诉建议、旅游咨询</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="components/nav.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            new Carousel('homeCarousel', { interval: 5000 });
+        });
+    </script>
+</body>
+</html>

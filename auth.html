@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>注册 / 登录 - 魅力腾冲</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body data-page="auth">
+  <div id="nav-placeholder"></div>
+
+  <header class="page-header">
+    <h1>注册 / 登录</h1>
+    <p>注册后即可在「美好瞬间」发表图文动态</p>
+  </header>
+
+  <section class="container">
+    <div class="info-card auth-card">
+      <!-- 已登录状态 -->
+      <div id="loggedInBox" style="display:none; margin-bottom: 16px;">
+        <div class="info-card" style="border-left-color: var(--accent-gold); padding: 18px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap;">
+            <div>
+              <div style="font-weight:800; color: var(--primary-dark);">当前已登录</div>
+              <div id="loggedInUser" style="margin-top:6px; color: var(--text-light); font-size:0.92rem;"></div>
+            </div>
+            <button id="logoutBtn" class="btn btn-outline" type="button">退出登录</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-tabs" role="tablist" aria-label="注册登录切换">
+        <button class="auth-tab active" type="button" data-tab="login" role="tab" aria-selected="true">登录</button>
+        <button class="auth-tab" type="button" data-tab="register" role="tab" aria-selected="false">注册</button>
+      </div>
+
+      <!-- 登录 -->
+      <form id="loginForm" class="auth-panel" data-panel="login">
+        <div class="form-group">
+          <label for="loginUsername">用户名</label>
+          <input id="loginUsername" type="text" autocomplete="username" placeholder="请输入用户名" />
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">密码</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" placeholder="请输入密码（至少6位）" />
+        </div>
+        <button class="btn btn-primary" type="submit" style="width: 100%;">登录</button>
+        <p class="auth-hint">没有账号？点击上方「注册」。</p>
+      </form>
+
+      <!-- 注册 -->
+      <form id="registerForm" class="auth-panel" data-panel="register" style="display:none;">
+        <div class="form-group">
+          <label for="regUsername">用户名</label>
+          <input id="regUsername" type="text" autocomplete="username" placeholder="请输入用户名" />
+        </div>
+
+        <div class="form-group">
+          <label for="regPassword">密码</label>
+          <input id="regPassword" type="password" autocomplete="new-password" placeholder="请输入密码（至少6位）" />
+        </div>
+
+        <button class="btn btn-primary" type="submit" style="width: 100%;">注册</button>
+      </form>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="components/nav.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/axios.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>
+

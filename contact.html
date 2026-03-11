@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 魅力腾冲</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="contact">
+    <div id="nav-placeholder"></div>
+
+    <header class="page-header">
+        <h1>联系我们</h1>
+        <p>您的建议与反馈，是我们前进的动力</p>
+    </header>
+
+    <section class="container">
+        <div class="contact-layout">
+            <!-- 留言表单 -->
+            <div class="reveal">
+                <h2 style="margin-bottom: 24px; color: var(--primary);">留言反馈</h2>
+                <p style="color: var(--text-light); margin-bottom: 32px;">欢迎您对我们的工作提出宝贵意见和建议。如遇旅游咨询、服务建议或投诉问题，请详细填写下方表单，我们将在收到后尽快核实处理并予以回复。您的反馈将帮助我们不断提升服务质量。</p>
+                <form class="contact-form" id="feedbackForm">
+                    <div class="form-group">
+                        <label for="name">姓名 *</label>
+                        <input type="text" id="name" name="name" required placeholder="请输入您的姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">联系方式 *</label>
+                        <input type="text" id="contact" name="contact" required placeholder="手机号或邮箱">
+                    </div>
+                    <div class="form-group">
+                        <label for="type">留言类型</label>
+                        <select id="type" name="type">
+                            <option value="suggestion">建议</option>
+                            <option value="complaint">投诉</option>
+                            <option value="consult">咨询</option>
+                            <option value="praise">表扬</option>
+                            <option value="other">其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">留言内容 *</label>
+                        <textarea id="content" name="content" required placeholder="请详细描述您的问题、建议或投诉内容..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">提交留言</button>
+                </form>
+            </div>
+
+            <!-- 联系信息 -->
+            <div class="reveal">
+                <h2 style="margin-bottom: 24px; color: var(--primary);">联系信息</h2>
+                <div class="info-card" style="margin-bottom: 24px;">
+                    <h3>📍 地图定位</h3>
+                    <div class="map-container">
+                        <div class="map-frame">
+                            <iframe
+                                id="contactMapIframe"
+                                src="https://www.openstreetmap.org/export/embed.html?bbox=98.48%2C25.00%2C98.52%2C25.04&amp;layer=mapnik&amp;marker=25.0206%2C98.4973"
+                                title="腾冲市地图"
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            ></iframe>
+                            <div class="map-fallback" id="contactMapFallback" aria-live="polite">
+                                <div class="map-fallback-title">地图加载中…</div>
+                                <div class="map-fallback-desc">若浏览器无法显示地图，可在新窗口打开。</div>
+                                <div class="map-fallback-actions">
+                                    <a class="btn btn-outline" href="https://www.openstreetmap.org/?mlat=25.0206&amp;mlon=98.4973#map=14/25.0206/98.4973" target="_blank" rel="noopener">打开 OpenStreetMap</a>
+                                    <a class="btn btn-primary" href="https://uri.amap.com/marker?position=98.4973,25.0206&amp;name=腾冲" target="_blank" rel="noopener">打开高德地图</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-top: 12px;">云南省保山市腾冲市腾越镇</p>
+                    <a href="https://uri.amap.com/marker?position=98.4973,25.0206&name=腾冲" target="_blank" rel="noopener" style="color: var(--primary); font-size: 0.9rem;">在高德地图中打开</a>
+                </div>
+                <div class="info-card" style="margin-bottom: 24px;">
+                    <h3>📞 电话</h3>
+                    <p>旅游咨询热线：0885-XXXXXXX</p>
+                    <p>投诉举报热线：0885-XXXXXXX</p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">请替换为实际联系电话</p>
+                </div>
+                <div class="info-card" style="margin-bottom: 24px;">
+                    <h3>📧 邮箱</h3>
+                    <p>lyj@tengchong.gov.cn</p>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">请替换为实际电子邮箱</p>
+                </div>
+                <div class="info-card">
+                    <h3>⏰ 工作时间</h3>
+                    <p>周一至周五 9:00-17:00</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title reveal" style="margin-top: 80px;">
+            <h2>办理说明</h2>
+            <p>我们承诺对您的留言认真对待、及时处理</p>
+        </div>
+        <div class="official-intro reveal">
+            <p>受理范围：旅游咨询、服务建议、投诉举报、表扬反馈等。我们将在收到留言后按相关规定办理，一般事项在15个工作日内答复，复杂事项适当延长。请确保联系方式准确有效，以便我们与您取得联系。</p>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="components/nav.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="js/main.js"></script>
+    <!-- Axios 用于调用留言后台接口 -->
+    <script src="js/axios.min.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

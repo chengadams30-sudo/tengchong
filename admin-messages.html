@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>留言管理 - 魅力腾冲</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="admin-messages">
+    <div id="nav-placeholder"></div>
+
+    <header class="page-header">
+        <h1>留言管理</h1>
+        <p>输入管理密码后，可查看并处理网站留言</p>
+    </header>
+
+    <section class="container">
+        <!-- 密码验证区域 -->
+        <div class="info-card" style="margin: 0 auto 24px; max-width: 480px;">
+            <h2 style="margin-bottom: 16px; color: var(--primary); font-size: 1.1rem;">管理密码验证</h2>
+            <div class="form-group">
+                <label for="adminPassword">请输入管理密码</label>
+                <input type="password" id="adminPassword" placeholder="请输入密码后点击“解锁留言”">
+            </div>
+            <button id="unlockBtn" class="btn btn-primary" style="width: 100%; margin-top: 8px;">解锁留言</button>
+            <p style="margin-top: 8px; font-size: 0.85rem; color: var(--text-light);">
+                提示：此页面仅供老师/管理员查看，不对游客公开入口。
+            </p>
+        </div>
+
+        <!-- 留言列表 -->
+        <div id="messagesSection" style="display: none; max-width: 1600px; margin: 0 auto;">
+            <div class="section-title" style="margin-top: 16px; text-align: left;">
+                <h2>留言列表</h2>
+                <p>可对留言进行审核、发布或删除操作</p>
+            </div>
+            <div id="messagesContainer" class="info-card" style="overflow-x: auto;">
+                <table class="table admin-table">
+                    <colgroup>
+                        <col style="width: 12%;">
+                        <col style="width: 18%;">
+                        <col style="width: 46%;">
+                        <col style="width: 14%;">
+                        <col style="width: 6%;">
+                        <col style="width: 12%;">
+                    </colgroup>
+                    <thead>
+                        <tr>
+                            <th>昵称</th>
+                            <th>联系方式</th>
+                            <th>留言内容</th>
+                            <th>时间</th>
+                            <th>状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messagesTbody">
+                        <!-- 动态插入留言行 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="components/nav.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/axios.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/admin-messages.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,799 @@
+/**
+ * 腾冲旅游网站 - 复用组件样式
+ * 卡片动效、轮播图等
+ */
+
+/* ========== 轮播图 ========== */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+    touch-action: pan-y; /* 允许竖向滚动，水平滑动用于轮播 */
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    will-change: transform;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+/* 拖拽时给一点手感 */
+.carousel.is-dragging {
+    cursor: grabbing;
+}
+.carousel:not(.is-dragging) {
+    cursor: grab;
+}
+
+.carousel-caption {
+    position: absolute;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.carousel-caption h2 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.carousel-controls {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-dot:hover,
+.carousel-dot.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255,255,255,0.3);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+}
+
+.carousel-arrow:hover {
+    background: rgba(255,255,255,0.6);
+}
+
+.carousel-arrow.prev {
+    left: 24px;
+}
+
+.carousel-arrow.next {
+    right: 24px;
+}
+
+/* ========== 特色卡片网格 ========== */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 28px;
+}
+
+/* 美食指南：固定上2下2（大屏两列） */
+.card-grid.food-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* 美食指南卡片：单独把图片高度调高一些，保证食物完整展示 */
+.card-grid.food-grid .card-img {
+    height: 260px;
+}
+
+/* 文化遗产：非遗记忆/技艺卡片固定上2下2 */
+.card-grid.heritage-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* 景区距离参考：两张卡片整体居中 */
+.card-grid.distance-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 900px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.card-grid.distance-grid .info-card {
+    width: 100%;
+}
+
+/* 交通指南：到达腾冲（三卡）标题/图标居中 */
+.card-grid.transport-arrival-grid .card-body {
+    text-align: center;
+}
+
+.card-grid.transport-arrival-grid .transport-icon {
+    display: flex;
+    justify-content: center;
+}
+
+.card-grid.transport-arrival-grid .card-text {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 首页服务指南：上2下2布局 */
+.service-guide-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.card-link { display: block; }
+.card-icon { font-size: 2.5rem; margin-bottom: 16px; }
+.tag-days { display: inline-block; background: var(--primary); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.9rem; margin-bottom: 16px; }
+.transport-icon { font-size: 2.5rem; margin-bottom: 16px; }
+
+.card-flip {
+    perspective: 1000px;
+    height: 320px;
+}
+
+.card-flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-flip-inner {
+    transform: rotateY(180deg);
+}
+
+.card-flip-front,
+.card-flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.card-flip-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    padding: 24px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ========== 信息列表卡片 ========== */
+.info-card {
+    position: relative;
+    background: white;
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary);
+}
+
+.info-card:hover {
+    transform: translateX(8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.info-card h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+/* ========== 表单样式 ========== */
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e0e6e1;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(45, 90, 61, 0.15);
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ========== 时间线样式 ========== */
+.timeline {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary), var(--accent-gold));
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -46px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: var(--shadow);
+}
+
+.timeline-item h4 {
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.timeline-item p {
+    color: var(--text-light);
+}
+
+/* ========== 联系我们布局 ========== */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+@media (max-width: 768px) {
+    .contact-layout {
+        grid-template-columns: 1fr;
+    }
+    .service-guide-grid {
+        grid-template-columns: 1fr;
+        max-width: none;
+    }
+    .carousel-caption h2 { font-size: 1.75rem; }
+    .carousel-caption p { font-size: 1rem; }
+
+    .card-grid.food-grid {
+        grid-template-columns: 1fr;
+        max-width: none;
+    }
+
+    .card-grid.heritage-grid {
+        grid-template-columns: 1fr;
+        max-width: none;
+    }
+
+    .card-grid.distance-grid {
+        grid-template-columns: 1fr;
+        max-width: none;
+    }
+}
+
+/* 联系我们地图 */
+.map-container {
+    width: 100%;
+    height: 280px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.map-frame {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.map-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px;
+    background: linear-gradient(135deg, rgba(245, 247, 246, 0.94) 0%, rgba(255, 255, 255, 0.94) 100%);
+    border-radius: var(--radius-lg);
+}
+
+.map-fallback-title {
+    font-weight: 700;
+    color: var(--primary-dark);
+}
+
+.map-fallback-desc {
+    font-size: 0.92rem;
+    color: var(--text-light);
+}
+
+.map-fallback-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.map-fallback.is-hidden {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .map-container { height: 220px; }
+}
+
+/* ========== 管理员：留言表格 ========== */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    table-layout: fixed; /* 关键：表头/内容按同一列宽渲染，避免错位 */
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 10px 10px;
+    border-bottom: none;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.admin-table thead th {
+    font-weight: 700;
+    color: var(--text-dark);
+    background: rgba(45, 122, 90, 0.04);
+}
+
+.admin-table tbody tr:hover td {
+    background: rgba(45, 122, 90, 0.03);
+}
+
+.admin-table .msg-content {
+    /* 内容列允许换行（最多两行），避免挤成一团 */
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.admin-table .msg-actions {
+    white-space: nowrap;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 操作按钮上下对齐一致 */
+.admin-table .msg-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-table .msg-actions .btn {
+    width: auto;
+}
+
+/* 时间/状态列保持单行 */
+.admin-table th:nth-child(4),
+.admin-table td:nth-child(4),
+.admin-table th:nth-child(5),
+.admin-table td:nth-child(5) {
+    white-space: nowrap;
+}
+
+/* ========== 注册/登录 ========== */
+.auth-card {
+    max-width: 520px;
+    margin: 0 auto;
+}
+
+.auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.auth-tab {
+    border: 1px solid var(--border-light);
+    background: rgba(45, 122, 90, 0.04);
+    padding: 12px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 700;
+    color: var(--text-dark);
+    transition: var(--transition);
+}
+
+.auth-tab:hover {
+    background: rgba(45, 122, 90, 0.08);
+}
+
+.auth-tab.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.auth-hint {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.auth-code-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+@media (max-width: 520px) {
+    .auth-code-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* ========== 美好瞬间（朋友圈） ========== */
+.moments-layout {
+    display: grid;
+    /* 左侧发布区不死板固定：给一个舒适的弹性范围 */
+    grid-template-columns: minmax(360px, 440px) minmax(0, 1fr);
+    gap: 28px;
+    align-items: start;
+}
+
+@media (max-width: 980px) {
+    .moments-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+.moments-compose {
+    position: sticky;
+    top: 88px;
+}
+
+@media (max-width: 980px) {
+    .moments-compose {
+        position: static;
+        top: auto;
+    }
+}
+
+.moments-sub {
+    margin: 8px 0 0;
+    font-size: 0.88rem;
+    color: var(--text-light);
+}
+
+.moments-compose-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+/* 发布卡片内部稍微紧凑一点，视觉更利落 */
+.moments-compose .form-group {
+    margin-bottom: 18px;
+}
+
+.moments-compose textarea {
+    min-height: 110px;
+}
+
+.moments-feed-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.moments-preview {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.moments-preview:empty {
+    margin-top: 0;
+}
+
+.moments-preview-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    background: #fff;
+}
+
+.moments-preview-item img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+}
+
+.moments-preview-remove {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.moments-list {
+    display: grid;
+    gap: 16px;
+    /* 留言/动态过多时不拉长整页：列表区域独立滚动 */
+    max-height: 66vh;
+    overflow: auto;
+    padding-right: 6px;
+}
+
+/* 列表滚动条更细（兼容多数浏览器） */
+.moments-list::-webkit-scrollbar {
+    width: 8px;
+}
+.moments-list::-webkit-scrollbar-thumb {
+    background: rgba(45, 122, 90, 0.25);
+    border-radius: 999px;
+}
+.moments-list::-webkit-scrollbar-thumb:hover {
+    background: rgba(45, 122, 90, 0.38);
+}
+
+.moments-empty {
+    padding: 18px 12px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.moment-card {
+    border: 1px solid var(--border-light);
+    border-radius: 14px;
+    padding: 16px;
+    background: #fff;
+    box-shadow: 0 2px 14px rgba(45, 122, 90, 0.06);
+}
+
+.moment-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.moment-del {
+    background: rgba(192, 57, 43, 0.10);
+    border: 1px solid rgba(192, 57, 43, 0.28);
+    color: #b33124;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 800;
+}
+.moment-del:hover {
+    background: rgba(192, 57, 43, 0.16);
+}
+
+.moment-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.moment-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(45, 122, 90, 0.12), rgba(201, 162, 39, 0.14));
+    color: var(--primary-dark);
+    font-weight: 900;
+}
+
+.moment-name {
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.1;
+}
+
+.moment-time {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+.moment-text {
+    white-space: pre-wrap;
+    word-break: break-word;
+    line-height: 1.75;
+    margin: 6px 0 12px;
+}
+
+.moment-images {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.moment-images img {
+    width: 100%;
+    height: 120px;
+    border-radius: 12px;
+    object-fit: cover;
+    cursor: zoom-in;
+    border: 1px solid var(--border-light);
+}
+
+/* ========== 美好瞬间：响应式补齐（对齐全站断点） ========== */
+@media (max-width: 768px) {
+    .moments-layout {
+        gap: 18px;
+    }
+
+    /* 手机端列表区域不要占太多高度 */
+    .moments-list {
+        max-height: 58vh;
+        padding-right: 4px;
+    }
+
+    .moments-preview {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .moment-images {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .moment-images img {
+        height: 140px;
+    }
+}
+
+@media (max-width: 480px) {
+    .moments-compose-head {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .moments-compose-head .btn {
+        width: 100%;
+    }
+
+    .moments-preview-item img {
+        height: 96px;
+    }
+
+    .moment-images img {
+        height: 128px;
+    }
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>美好瞬间 - 魅力腾冲</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body data-page="moments">
+  <div id="nav-placeholder"></div>
+
+  <header class="page-header">
+    <h1>美好瞬间</h1>
+    <p>记录旅行与生活的片段，分享给更多人</p>
+  </header>
+
+  <section class="container">
+    <div class="moments-layout">
+      <div class="info-card moments-compose reveal">
+        <div class="moments-compose-head">
+          <div>
+            <h2 style="margin:0; font-size:1.1rem; color: var(--primary);">发布瞬间</h2>
+            <p class="moments-sub">登录后可发布图文动态（最多 3 张）</p>
+          </div>
+          <button id="goLoginBtn" class="btn btn-outline" type="button">去登录</button>
+        </div>
+
+        <form id="momentForm">
+          <div class="form-group">
+            <label for="momentText">文字</label>
+            <textarea id="momentText" placeholder="写点什么吧…（最多 300 字）" maxlength="300"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="momentImages">图片</label>
+            <input id="momentImages" type="file" accept="image/*" multiple />
+            <div id="imagePreview" class="moments-preview"></div>
+            <p class="moments-sub">提示：图片会以压缩后的方式上传；建议每张小于 1MB。</p>
+          </div>
+
+          <button id="publishBtn" class="btn btn-primary" type="submit" style="width:100%;">发布</button>
+        </form>
+      </div>
+
+      <div class="info-card reveal" style="border-left-color: var(--accent-gold);">
+        <div class="moments-feed-head">
+          <h2 style="margin:0; font-size:1.1rem; color: var(--primary);">最新动态</h2>
+          <button id="refreshBtn" class="btn btn-outline" type="button">刷新</button>
+        </div>
+        <div id="momentsList" class="moments-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="components/nav.js"></script>
+  <script src="components/footer.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/axios.min.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/moments.js"></script>
+</body>
+</html>
+
